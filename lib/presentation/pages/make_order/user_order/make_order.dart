@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/my_bottomNavigationBar.dart';
+import 'package:online_shop/presentation/pages/widgets/my_bottom_navigation_bar.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/comment.dart';
+import 'package:online_shop/presentation/pages/make_order/user_order/widgets/go_to_ordering.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/textfields_with_data_order.dart';
 import 'package:online_shop/presentation/pages/widgets/total_cart_sum.dart';
 import 'package:online_shop/utils/app_bars.dart';
@@ -22,6 +23,7 @@ class _MakeOrderState extends State<MakeOrder> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: appBarMakeOrder,
+      bottomNavigationBar: const GoToOrdering(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: ListView(
@@ -93,11 +95,12 @@ class _MakeOrderState extends State<MakeOrder> {
             SizedBox(
               height: 12.5.h,
             ),
-            Comment(),
+            const Comment(),
             SizedBox(
               height: 16.h,
             ),
             TotalCartSum(),
+            SizedBox(height: 10.h,),
           ],
         ),
       ),

@@ -22,6 +22,7 @@ import 'package:online_shop/utils/navigator_key.dart';
 }*/
 
 AppBar appBarHomePage = AppBar(
+  centerTitle: true,
   toolbarHeight: 56.h,
   backgroundColor: Colors.white,
   title: Row(
@@ -80,15 +81,14 @@ AppBar appBarProfilePage = AppBar(
   toolbarHeight: 56.h,
   centerTitle: true,
   backgroundColor: Colors.white,
-  title: Center(
-      child: Text(
+  title: Text(
     "Профиль",
     style: TextStyle(
       fontSize: 16.h,
       fontWeight: FontWeight.w500,
       color: Colors.black,
     ),
-  )),
+  ),
   shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
     bottom: Radius.circular(20.sp),
@@ -167,4 +167,35 @@ AppBar appBarMyOrders = AppBar(
       borderRadius: BorderRadius.vertical(
     bottom: Radius.circular(20.sp),
   )),
+);
+AppBar appBarItemCard = AppBar(
+  foregroundColor: Colors.grey,
+  centerTitle: true,
+  title: Text(
+    "Говядина",
+    style: TextStyle(
+        fontSize: 16.sp, fontWeight: FontWeight.w500, color: Colors.black),
+  ),
+  actions: [
+    SvgPicture.asset(
+      'assets/icons/card_item_screen/upload_app_bar.svg',
+    ),
+    SizedBox(
+      width: 17.w,
+    ),
+    Icon(
+      Icons.favorite_outline,
+      color: Colors.grey.shade400,
+    ),
+    SizedBox(
+      width: 10.w,
+    )
+  ],
+  toolbarHeight: 56.h,
+  backgroundColor: Colors.white,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      bottom: Radius.circular(20.sp),
+    ),
+  ),
 );

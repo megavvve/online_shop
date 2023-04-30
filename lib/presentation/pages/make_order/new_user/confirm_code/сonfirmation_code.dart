@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/domain/models/user.dart';
+import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/presentation/pages/make_order/new_user/confirm_code/widgets/textfiels_for_confirm.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -54,7 +54,7 @@ void ConfirmationCode(BuildContext context, User user) {
                 horizontal: 16.w,
               ),
               child: Text(
-                'Введите код, который пришел на номер ${user.number}',
+                'Введите код, который пришел на номер ${user.phone}',
                 style: TextStyle(
                   color: Colors.grey.shade400,
                   fontSize: 16.sp,

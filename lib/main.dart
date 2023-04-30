@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
           designSize: const Size(375, 812),
           builder: (context, child) {
+            //print(ModalRoute.of(context)?.settings.name);
             return MaterialApp(
               theme: ThemeData(
                 primaryColor: backgroundColor,

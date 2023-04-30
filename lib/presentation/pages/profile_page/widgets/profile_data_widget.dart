@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/domain/models/profile_data.dart';
-import 'package:online_shop/presentation/pages/profile_page/profile_page.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class ProfileDataWidget extends StatelessWidget {

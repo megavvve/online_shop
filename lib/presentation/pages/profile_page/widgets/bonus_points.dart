@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/domain/models/user.dart';
+import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class BonusPoints extends StatelessWidget {
@@ -47,7 +47,7 @@ class BonusPoints extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${user.bonus_points} баллов',
+                '200 баллов',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.sp,

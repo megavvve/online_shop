@@ -3,15 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_shop/blocs/bloc/cart_bloc.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/widgets/conteiner_for_cart_page.dart';
-import 'package:online_shop/presentation/pages/home_page/home_page.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-
   const MyBottomNavigationBar({
     super.key,
-    
   });
 
   @override
@@ -24,9 +20,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   _onTap(int tabIndex) {
     switch (tabIndex) {
       case 0:
-     
-        navigatorKey.currentState?.pushReplacementNamed("Home",);
-        //print(1);
+        navigatorKey.currentState?.pushReplacementNamed(
+          "Home",
+        );
         break;
       case 1:
         navigatorKey.currentState?.pushReplacementNamed("Catalog");
@@ -50,12 +46,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        //print(ModalRoute.of(context)?.settings.name);
         return Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            if (_selectedTab == 3 && state.prodCardList.isNotEmpty)
-              const ConteinerForCartPage(),
             ClipRRect(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.0.sp),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_shop/presentation/pages/profile_page/screens/personal_data_screen/widgets/save_button.dart';
 import 'package:online_shop/utils/app_bars.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -11,6 +12,7 @@ class PersonalData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const SaveButton(),
       appBar: appBarPersonalData,
       body: SingleChildScrollView(
         child: Padding(

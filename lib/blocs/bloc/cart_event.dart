@@ -10,16 +10,16 @@ class CartInit extends CartEvent{
   List<Object> get props => [];
 }
 class AddCartProd extends CartEvent {
-  final ProductCard productCard;
+  final Product product;
 
-  const AddCartProd( {required this.productCard});
+  const AddCartProd( {required this.product});
   @override
   List<Object> get props => [];
 }
 class DeleteCartProd extends CartEvent {
-  final ProductCard productCard;
+  final Product product;
 
-  const DeleteCartProd( {required this.productCard});
+  const DeleteCartProd( {required this.product});
   @override
   List<Object> get props => [];
 }

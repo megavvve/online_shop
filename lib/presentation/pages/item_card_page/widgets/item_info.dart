@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/app_texts.dart';
 
+import 'review/review_widget.dart';
+
 class ItemInfo extends StatefulWidget {
-  const ItemInfo({super.key});
+  final Product product;
+  const ItemInfo({super.key, required this.product});
 
   @override
   State<ItemInfo> createState() => _ItemInfoState();
@@ -11,12 +15,12 @@ class ItemInfo extends StatefulWidget {
 
 class _ItemInfoState extends State<ItemInfo> {
   int _selectedTab = 1;
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 557.h,
-      child: Column(
-        children:[ Row(
+    return Column(
+      children: [
+        Row(
           children: [
             TextButton(
               onPressed: () {
@@ -80,12 +84,23 @@ class _ItemInfoState extends State<ItemInfo> {
             ),
           ],
         ),
-        SizedBox(height: 16.h,),
-        if(_selectedTab==1)describeTextItem,
-        if(_selectedTab==2)characteristicsTextItem,
-        if(_selectedTab==3)reviewTextItem,
-        ]
-      ),
+        SizedBox(
+          height: 16.h,
+        ),
+        if (_selectedTab == 1)
+          Text(
+            widget.product.description,
+            style: TextStyle(
+              fontSize: 16.sp,
+              color: const Color(0xff8E9096),
+            ),
+          ),
+        if (_selectedTab == 2) characteristicsTextItem,
+        if (_selectedTab == 3) ReviewWidget(rating: widget.product.rating,),
+        SizedBox(
+          height: 24.h,
+        ),
+      ],
     );
   }
 }

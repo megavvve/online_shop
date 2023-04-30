@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class WeightItemCard extends StatefulWidget {
-  WeightItemCard({super.key});
+  const WeightItemCard({super.key});
 
+  @override
   State<WeightItemCard> createState() => _WeightItemCardState();
 }
 

@@ -2,76 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_shop/domain/models/marketing_sticker.dart';
-import 'package:online_shop/domain/models/product_card.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/card_item_navbar.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/my_bottomNavigationBar.dart';
+import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/presentation/pages/item_card_page/widgets/container_for_bottomnavbar.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/item_info.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/link_on_brand.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/marketing_stickers_UI.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/weight_item_card.dart';
+import 'package:online_shop/utils/app_bars.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 import '../widgets/reccomend_card_item.dart';
 
-class ItemCardPage extends StatefulWidget {
-  ItemCardPage({
-    super.key,
+class ItemCardPage extends StatelessWidget {
+  final Product product;
+  const ItemCardPage({
+    super.key, required this.product,
   });
-  
-    @override
-    State<ItemCardPage> createState() => _ItemCardPageState();
-  }
-  
-  class _ItemCardPageState extends State<ItemCardPage> {
-  
-  ProductCard productCard = ProductCard.listProdCard[1];
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: const Color(0xFFFAFBF9),
-      appBar: AppBar(
-        foregroundColor: Colors.grey,
-        centerTitle: true,
-        title: Text(
-          "Говядина",
-          style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black),
-        ),
-        actions: [
-          SvgPicture.asset(
-            'assets/icons/card_item_screen/upload_app_bar.svg',
-          ),
-          SizedBox(
-            width: 17.w,
-          ),
-          Icon(
-            Icons.favorite_outline,
-            color: Colors.grey.shade400,
-          ),
-          SizedBox(
-            width: 10.w,
-          )
-        ],
-        toolbarHeight: 56.h,
-        backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20.sp),
-          ),
-        ),
-      ),
+      bottomNavigationBar: ContainerForBottomNavBar(product: product),
+      appBar: appBarItemCard,
       body: ListView(
         children: [
-          SizedBox(
-            width: 375.w,
-            child: Image(
-              image: AssetImage(productCard.imageUrl),
-            ),
+          Image.network(
+            product.imageUrl,height: 250.h,
           ),
+          SizedBox(height:24.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             child: Column(
@@ -84,7 +43,7 @@ class ItemCardPage extends StatefulWidget {
                   height: 16.h,
                 ),
                 Text(
-                  'УГЛЕЧЕ ПОЛЕ Стейк Флэнк (Ангус) охл скин',
+                  product.title,
                   style: TextStyle(fontSize: 20.sp),
                 ),
                 SizedBox(
@@ -110,7 +69,7 @@ class ItemCardPage extends StatefulWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                const ItemInfo(),
+                 ItemInfo(product: product,),
                 const LinkOnBrand(),
                 SizedBox(
                   height: 24.h,

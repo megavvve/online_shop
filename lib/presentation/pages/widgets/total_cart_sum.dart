@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/blocs/bloc/cart_bloc.dart';
-import 'package:online_shop/domain/models/product_card.dart';
+import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/app_texts.dart';
 
 class TotalCartSum extends StatelessWidget {
@@ -13,14 +13,14 @@ class TotalCartSum extends StatelessWidget {
     
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        List<ProductCard> prodList = state.prodCardList;
-    int sumProdList = prodList
+        List<Product> prodList = state.prodList;
+    double sumProdList = prodList
         .map(
           (item) => item.price,
         )
         .reduce(
           (value, current) => value + current,
-        );
+        ) as double;
     int prodListLength = prodList.length;
         return Column(
           children: [
@@ -31,7 +31,7 @@ class TotalCartSum extends StatelessWidget {
                   prodListLength,
                 ),
                 Text(
-                  "$sumProdList ₽",
+                  "$sumProdList \$",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18.sp,

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/blocs/bloc/cart_bloc.dart';
-import 'package:online_shop/domain/models/product_card.dart';
+import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/presentation/pages/cart_page/cart_screens/widgets/container_for_cart_bottomnavbar.dart';
 import 'package:online_shop/presentation/pages/cart_page/cart_screens/widgets/cart_item.dart';
 import 'package:online_shop/presentation/pages/widgets/reccomend_card_item.dart';
 import 'package:online_shop/presentation/pages/widgets/total_cart_sum.dart';
@@ -15,10 +16,11 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        List<ProductCard> prodList = state.prodCardList;
+        List<Product> prodList = state.prodList;
 
         return Scaffold(
           appBar: appBarCartPage,
+          bottomNavigationBar: const ContainerForCartBottomNavBar(),
           body: Padding(
             padding: EdgeInsets.only(
               right: 16.w,
@@ -29,9 +31,9 @@ class CartScreen extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                for (ProductCard productCard in prodList)
+                for (Product product in prodList)
                   CartItem(
-                    productCard: productCard,
+                    product: product,
                   ),
                 SizedBox(
                   height: 16.h,

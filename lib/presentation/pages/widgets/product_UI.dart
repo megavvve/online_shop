@@ -5,15 +5,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:online_shop/blocs/bloc/cart_bloc.dart';
 import 'package:online_shop/presentation/pages/item_card_page/item_card_page.dart';
 import 'package:online_shop/utils/app_colors.dart';
-import 'package:online_shop/domain/models/product_card.dart';
+import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
-class ProductCardUI extends StatelessWidget {
-  final ProductCard productCard;
+class ProductUI extends StatelessWidget {
+  final Product product;
 
-  const ProductCardUI({
+  const ProductUI({
     super.key,
-    required this.productCard,
+    required this.product,
   });
 
   @override
@@ -28,12 +28,11 @@ class ProductCardUI extends StatelessWidget {
               onTap: () {
                 navigatorKey.currentState?.push(
                   MaterialPageRoute(
-                    builder: (context) => ItemCardPage(),
+                    builder: (context) =>  ItemCardPage( product: product,),
                   ),
                 );
               },
               child: Container(
-                //color: Colors.white,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0.sp),
                   color: Colors.white,
@@ -49,26 +48,31 @@ class ProductCardUI extends StatelessWidget {
                 height: 240.h,
                 width: 168.w,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage(productCard.imageUrl)),
-                    SizedBox(
-                      height: 8.h,
-                    ),
+                    Image.network(product.imageUrl,height: 133.h,width: 168.w,),
+                    
                     Container(
                       padding: EdgeInsets.only(
-                          right: 12.w, left: 12.w, bottom: 12.h, top: 8.h),
+                          right: 12.w, bottom: 8.h,left: 12.w, top: 8.h),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            productCard.name,
-                            style: TextStyle(fontSize: 12.sp),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              product.title,
+                              style: TextStyle(fontSize: 12.sp,fontWeight:FontWeight.w400),
+                              maxLines: 2,
+                               overflow: TextOverflow.ellipsis,
+                              
+                            ),
                           ),
                           SizedBox(
                             height: 4.h,
                           ),
                           Text(
-                            "за ${productCard.weight} ₽ ",
+                            "за 0.4 кг ",
                             style:
                                 TextStyle(fontSize: 12.sp, color: Colors.grey),
                           ),
@@ -79,7 +83,7 @@ class ProductCardUI extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "${productCard.price.toString()} ₽",
+                                "${product.price.toString()} \$",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18.sp),
@@ -91,7 +95,7 @@ class ProductCardUI extends StatelessWidget {
                                     onPressed: () {
                                       bloc.add(
                                         AddCartProd(
-                                          productCard: productCard,
+                                          product: product,
                                         ),
                                       );
                                     },

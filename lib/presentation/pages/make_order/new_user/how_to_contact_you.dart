@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/domain/models/user.dart';
+import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/make_order.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/utils/navigator_key.dart';

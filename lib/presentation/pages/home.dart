@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop/data/api/repository/products_repository.dart';
+import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/navigation/generateRoute.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/my_bottomNavigationBar.dart';
-import 'package:online_shop/presentation/pages/profile_page/profile_page.dart';
-import 'package:online_shop/utils/app_bars.dart';
+import 'package:online_shop/presentation/pages/widgets/my_bottom_navigation_bar.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
@@ -20,7 +20,9 @@ class Home extends StatelessWidget {
         key: navigatorKey,
         onGenerateRoute: generateRoute,
         onPopPage: (route, result) {
-          return route.didPop(result,);
+          return route.didPop(
+            result,
+          );
         },
       ),
     ));

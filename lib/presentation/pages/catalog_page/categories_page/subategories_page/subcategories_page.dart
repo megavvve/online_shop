@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/presentation/bottom_nav_bar/my_bottomNavigationBar.dart';
+import 'package:online_shop/presentation/pages/widgets/my_bottom_navigation_bar.dart';
 import 'package:online_shop/utils/app_bars.dart';
 
 class SubcategoriesPage extends StatelessWidget {

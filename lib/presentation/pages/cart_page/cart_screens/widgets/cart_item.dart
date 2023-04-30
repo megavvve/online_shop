@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/blocs/bloc/cart_bloc.dart';
-import 'package:online_shop/domain/models/product_card.dart';
+import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class CartItem extends StatefulWidget {
-  final ProductCard productCard;
-  const CartItem({super.key, required this.productCard});
+  final Product product;
+  const CartItem({super.key, required this.product});
 
   @override
   State<CartItem> createState() => _CartItemState();
@@ -16,7 +16,7 @@ class CartItem extends StatefulWidget {
 class _CartItemState extends State<CartItem> {
   @override
   Widget build(BuildContext context) {
-    var productCard = widget.productCard;
+    Product product = widget.product;
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         final bloc = context.read<CartBloc>();
@@ -29,14 +29,14 @@ class _CartItemState extends State<CartItem> {
           height: 100.h,
           child: Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10.sp),
-                child: SizedBox(
-                  height: 70.h,
-                  width: 70.w,
-                  child: Image(
-                    image: AssetImage(productCard.imageUrl),
-                  ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.sp),
+                ),
+                height: 70.h,
+                width: 70.w,
+                child: Image.network(
+                  product.imageUrl,
                 ),
               ),
               SizedBox(
@@ -49,7 +49,7 @@ class _CartItemState extends State<CartItem> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      productCard.name,
+                      product.title,
                       style: TextStyle(
                           fontSize: 14.sp, fontWeight: FontWeight.w400),
                     ),
@@ -61,7 +61,7 @@ class _CartItemState extends State<CartItem> {
                       
                       children: [
                         Text(
-                          "${productCard.price} ₽",
+                          "${product.price} \$",
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _CartItemState extends State<CartItem> {
                                 onPressed: () {
                                   bloc.add(
                                     DeleteCartProd(
-                                      productCard: productCard,
+                                      product: product,
                                     ),
                                   );
                                 },
@@ -95,7 +95,7 @@ class _CartItemState extends State<CartItem> {
                                 ),
                               ),
                               Text(
-                                "${productCard.weight} кг",
+                                "${0.4} кг",
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                 ),
@@ -104,7 +104,7 @@ class _CartItemState extends State<CartItem> {
                                 onPressed: () {
                                   bloc.add(
                                     AddCartProd(
-                                      productCard: productCard,
+                                      product: product,
                                     ),
                                   );
                                 },
