@@ -68,7 +68,7 @@ void PhoneRegistration(BuildContext context, User user) {
                         filled: true,
                         fillColor: Colors.grey.shade300,
                         //labelText: '',
-                        hintText: '+79094043953',
+                        hintText: user.phone,
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                           color: Colors.grey.shade300,
@@ -97,7 +97,7 @@ void PhoneRegistration(BuildContext context, User user) {
                           Navigator.pop(context);
                           ConfirmationCode(
                             context,
-                            User.user1,
+                            user,
                           );
                         },
                         style: ButtonStyle(

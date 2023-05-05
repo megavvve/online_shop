@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:online_shop/blocs/bloc/cart_bloc.dart';
+import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+
 import 'package:online_shop/presentation/pages/item_card_page/item_card_page.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/domain/models/product/product.dart';
@@ -22,7 +23,7 @@ class ProductUI extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return Padding(
-          padding: EdgeInsets.only(right: 4.w, left: 8.w),
+          padding: EdgeInsets.only(right: 4.w, left: 8.w,),
           child: Align(
             child: InkWell(
               onTap: () {
@@ -34,13 +35,13 @@ class ProductUI extends StatelessWidget {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0.sp),
+                  borderRadius: BorderRadius.circular(12.0.sp,),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade300,
                       blurRadius: 4,
-                      offset: const Offset(-6, 10), // Shadow position
+                      offset: const Offset(-6, 10,), // Shadow position
                     ),
                   ],
                 ),
@@ -54,7 +55,7 @@ class ProductUI extends StatelessWidget {
                     
                     Container(
                       padding: EdgeInsets.only(
-                          right: 12.w, bottom: 8.h,left: 12.w, top: 8.h),
+                          right: 12.w, bottom: 8.h,left: 12.w, top: 8.h,),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -62,7 +63,7 @@ class ProductUI extends StatelessWidget {
                             alignment: Alignment.center,
                             child: Text(
                               product.title,
-                              style: TextStyle(fontSize: 12.sp,fontWeight:FontWeight.w400),
+                              style: TextStyle(fontSize: 12.sp,fontWeight:FontWeight.w400,),
                               maxLines: 2,
                                overflow: TextOverflow.ellipsis,
                               
@@ -72,9 +73,9 @@ class ProductUI extends StatelessWidget {
                             height: 4.h,
                           ),
                           Text(
-                            "за 0.4 кг ",
+                            "за 1 шт",
                             style:
-                                TextStyle(fontSize: 12.sp, color: Colors.grey),
+                                TextStyle(fontSize: 12.sp, color: Colors.grey,),
                           ),
                           SizedBox(
                             height: 12.h,

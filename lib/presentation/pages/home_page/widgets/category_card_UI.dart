@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/domain/models/categories.dart';
-import 'package:online_shop/presentation/pages/catalog_page/categories_page/subategories_page/subcategories_page.dart';
+import 'package:online_shop/presentation/pages/subategories_page/subcategories_page.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class CategoryCardUI extends StatelessWidget {
-  final Category category;
+  final String category;
   const CategoryCardUI({super.key, required this.category});
 
   @override
@@ -15,10 +15,11 @@ class CategoryCardUI extends StatelessWidget {
       child: InkWell(
         onTap: () {navigatorKey.currentState?.push(
                   MaterialPageRoute(
-                    builder: (context) => SubcategoriesPage(),
+                    builder: (context) => SubcategoriesPage(category: category,),
                   ),
                 );},
         child: Align(
+          
           child: Container(
              decoration: BoxDecoration(
             color: Colors.white,
@@ -37,19 +38,22 @@ class CategoryCardUI extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      category.name,
-                      style: TextStyle(fontSize: 12.sp),
+                    Center(
+                      child: Text(
+                        category,
+                        style: TextStyle(fontSize: 12.sp),
+                      ),
                     )
                   ],
                 ),
-                Positioned(
+                /*Positioned(
                   top: 0,
                   left: 0,
                   child: Image(image: AssetImage(category.imageUrl)),
-                ),
+                ),*/
               ],
             ),
           ),

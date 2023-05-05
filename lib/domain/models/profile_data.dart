@@ -6,6 +6,7 @@ import 'package:online_shop/presentation/pages/profile_page/screens/personal_dat
 class ProfileData {
   final String name;
   final Widget widget;
+ 
 
   ProfileData({required this.widget, required this.name});
   static List<ProfileData> profileDataList = [

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
+import 'package:online_shop/data/api/repository/category_repository.dart';
 import 'package:online_shop/data/api/repository/products_repository.dart';
 import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/navigation/generateRoute.dart';

@@ -6,6 +6,7 @@ import 'package:online_shop/presentation/pages/home_page/home_page.dart';
 import 'package:online_shop/presentation/pages/profile_page/profile_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
+  
   switch (settings.name) {
     case "Home":
       return PageRouteBuilder(

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/bloc/cart_bloc.dart';
+import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+
 import 'package:online_shop/utils/navigator_key.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
@@ -20,21 +21,21 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   _onTap(int tabIndex) {
     switch (tabIndex) {
       case 0:
-        navigatorKey.currentState?.pushReplacementNamed(
+        navigatorKey.currentState?.pushNamed(
           "Home",
         );
         break;
       case 1:
-        navigatorKey.currentState?.pushReplacementNamed("Catalog");
+        navigatorKey.currentState?.pushNamed("Catalog");
         break;
       case 2:
-        navigatorKey.currentState?.pushReplacementNamed("Find");
+        navigatorKey.currentState?.pushNamed("Find");
         break;
       case 3:
-        navigatorKey.currentState?.pushReplacementNamed("Cart");
+        navigatorKey.currentState?.pushNamed("Cart");
         break;
       case 4:
-        navigatorKey.currentState?.pushReplacementNamed("Profile");
+        navigatorKey.currentState?.pushNamed("Profile");
         break;
     }
     setState(() {

@@ -6,18 +6,23 @@ class MyTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final String labelText;
   final Icon icon;
+  final String textForController;
   const MyTextField(
       {super.key,
       required this.keyboardType,
       required this.labelText,
-      required this.icon});
+      required this.icon,
+      required this.textForController});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller =
+        TextEditingController(text: textForController);
     return SizedBox(
       height: 65.h,
       width: 343.w,
       child: TextField(
+        controller: controller,
         keyboardType: keyboardType,
         style: TextStyle(
           color: Colors.black,
@@ -38,7 +43,6 @@ class MyTextField extends StatelessWidget {
             borderSide: BorderSide(
               color: secondaryColor,
               style: BorderStyle.solid,
-              
             ),
           ),
           enabledBorder: OutlineInputBorder(

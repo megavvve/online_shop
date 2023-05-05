@@ -65,7 +65,7 @@ class ItemCardPage extends StatelessWidget {
                 SizedBox(
                   height: 36.h,
                 ),
-                WeightItemCard(),
+                const WeightItemCard(),
                 SizedBox(
                   height: 24.h,
                 ),

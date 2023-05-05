@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/bloc/cart_bloc.dart';
+import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+
 import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -27,14 +28,14 @@ class ContainerForBottomNavBar extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "${product.price} ₽",
+                    "${product.price} \$",
                     style: TextStyle(
                       fontSize: 28.sp,
                       color: Colors.red,
                     ),
                   ),
                   Text(
-                    '/ кг',
+                    '/ 1 шт',
                     style: TextStyle(color: Colors.grey, fontSize: 14.sp),
                   )
                 ],

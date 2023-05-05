@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:online_shop/blocs/category_bloc/bloc/category_bloc.dart';
+import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
 import 'package:online_shop/presentation/pages/home.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -12,20 +16,27 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    final blocUser = context.read<UserBloc>();
+    blocUser.add(UserInit());
+    final blocProduct = context.read<ProductBloc>();
+    blocProduct.add(ProductInit());
+    final blocCategory = context.read<CategoryBloc>();
+    blocCategory.add(CategoryInit());
+    changeScreen();
+    super.initState();
+  }
   changeScreen() {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) =>  Home()),
+        MaterialPageRoute(builder: (context) =>  const Home()),
       );
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-    changeScreen();
-  }
+
 
   @override
   Widget build(BuildContext context) {

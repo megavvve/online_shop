@@ -6,5 +6,25 @@ class Cart {
   final String date;
   final List<ProductInCart> products;
 
-  Cart({required this.id, required this.userId, required this.date, required this.products});
+  Cart(
+      {required this.id,
+      required this.userId,
+      required this.date,
+      required this.products});
+  factory Cart.fromJson(Map<String, dynamic> json) {
+    return Cart(
+      id: json['id'] as int,
+      userId: json['userId'] as int,
+      date: json['price'] as String,
+      products: (json['products'] as List<dynamic>)
+          .map((dynamic e) => ProductInCart.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+  static Cart defaultCart =  Cart(
+    id: 0,
+    userId: 0,
+    date: '00-00-0000',
+    products: const <ProductInCart>[],
+  );
 }

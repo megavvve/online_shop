@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
+
 import 'package:online_shop/domain/models/profile_data.dart';
+
 import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/bonus_points.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/botton_exit.dart';
@@ -12,39 +17,50 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
+    
     return Scaffold(
       appBar: appBarProfilePage,
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 32.h,
+      body: BlocBuilder<UserBloc, UserState>(
+        builder: (context, state) {
+          final User user = state.user;
+          return Container(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 32.h,
+                ),
+                Text(
+                  user.name.firstname,
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+                ),
+                Text(
+                  user.phone,
+                  style: TextStyle(
+                      color: const Color(0xFFB8BBC1), fontSize: 18.sp),
+                ),
+                SizedBox(
+                  height: 18.h,
+                ),
+                BonusPoints(
+                  user: user,
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                ProfileDataWidget(
+                  profileDataList: ProfileData.profileDataList,
+                ),
+                SizedBox(
+                  height: 100.h,
+                ),
+                const ButtonExit(),
+              ],
             ),
-            Text(
-              User.user1.name.firstname,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
-            ),
-            Text(
-              User.user1.phone,
-              style: TextStyle(color: const Color(0xFFB8BBC1), fontSize: 18.sp),
-            ),
-            SizedBox(
-              height: 18.h,
-            ),
-            BonusPoints(user: User.user1,),
-            SizedBox(
-              height: 20.h,
-            ),
-            ProfileDataWidget(
-              profileDataList: ProfileData.profileDataList,
-            ),
-            SizedBox(height: 100.h,),
-            const ButtonExit(),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

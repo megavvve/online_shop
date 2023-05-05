@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/data/api/repository/products_repository.dart';
-import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:online_shop/presentation/pages/widgets/product_UI.dart';
 
 class RecommendCardItem extends StatelessWidget {
@@ -9,10 +9,10 @@ class RecommendCardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Product>>(
-        future: ProductsRepository().getProductsList(),
-        builder: (context, snapshot) {
-          List<Product> listProd = snapshot.data ?? [];
+    return BlocBuilder<ProductBloc, ProductState>(
+      builder: (context, state) {
+        
+        final listProd = state.prodList;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,13 +31,15 @@ class RecommendCardItem extends StatelessWidget {
                 itemCount: listProd.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return ProductUI(product:listProd[index],);
+                  return ProductUI(
+                    product: listProd[index],
+                  );
                 },
               ),
             ),
           ],
         );
-      }
+      },
     );
   }
 }

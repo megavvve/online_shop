@@ -20,6 +20,26 @@ class Product {
     required this.imageUrl,
     required this.rating,
   });
+   Product copyWith({
+    int? id,
+    String? title,
+    num? price,
+    String? category,
+    String? description,
+    String? imageUrl,
+    Rating? rating,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      price: price ?? this.price,
+      category: category ?? this.category,
+      description: description ?? this.description,
+      imageUrl: imageUrl ?? this.imageUrl,
+      rating: rating ?? this.rating,
+    );
+  }
+
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'] as int,
@@ -29,9 +49,11 @@ class Product {
       description: json['description'] as String,
       imageUrl: json['image'] as String,
       //rating:(json['rating'] as Map<String, dynamic>),
-      rating: (Rating.fromJson(json['rating'] as Map<String, dynamic>)),
+      rating: Rating.fromJson(json['rating'] as Map<String, dynamic>,),
     );
   }
+
+  
   /*Product copyWithPlus() {
     return Product(
         name: name,
