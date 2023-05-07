@@ -16,6 +16,7 @@ class PersonalData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       bottomNavigationBar: const SaveButton(),
       appBar: appBarPersonalData,
       body: BlocBuilder<UserBloc, UserState>(

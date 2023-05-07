@@ -21,12 +21,12 @@ class MyOrders extends StatelessWidget {
               horizontal: 16.w,
               vertical: 34.h,
             ),
-            child: ListView.builder(
+            child:(cartList.length!= 0)? ListView.builder(
               itemCount: cartList.length,
               itemBuilder: (context, index) {
                 return  OrderUI(cart: cartList[index],);
               },
-            ),
+            ): Center(child: Text("У вас нет заказов",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.sp),),)
           ),
         );
       },

@@ -25,8 +25,8 @@ class ProfilePage extends StatelessWidget {
           final User user = state.user;
           return Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 32.h,

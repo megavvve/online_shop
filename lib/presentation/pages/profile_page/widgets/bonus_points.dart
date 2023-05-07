@@ -10,7 +10,7 @@ class BonusPoints extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85.h,
+      //height: 85.h,
       width: 343.w,
       decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.sp,),

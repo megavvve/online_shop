@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/utils/app_colors.dart';
+import 'package:online_shop/utils/navigator_key.dart';
 
 class SaveButton extends StatelessWidget {
   const SaveButton({super.key});
@@ -18,7 +19,9 @@ class SaveButton extends StatelessWidget {
           height: 58.h,
           width: 343.w,
           child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                navigatorKey.currentState?.pop();
+              },
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all<Color>(greenMainColor),

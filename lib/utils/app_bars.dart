@@ -25,22 +25,24 @@ AppBar appBarHomePage = AppBar(
   centerTitle: true,
   toolbarHeight: 56.h,
   backgroundColor: Colors.white,
-  title: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      SvgPicture.asset(
-        'assets/icons/main_screen/app_bar_icon.svg',
-        height: 24.h,
-        width: 15.w,
-      ),
-      SizedBox(
-        width: 8.w,
-      ),
-      Text(
-        'ул. Пушкина 15, д. 20, кв. 113',
-        style: TextStyle(color: Colors.black, fontSize: 14.sp),
-      ),
-    ],
+  title: Center(
+    child: Row(
+      //mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SvgPicture.asset(
+          'assets/icons/main_screen/app_bar_icon.svg',
+          height: 24.h,
+          width: 15.w,
+        ),
+        SizedBox(
+          width: 8.w,
+        ),
+        Text(
+          'ул. Пушкина 15, д. 20, кв. 113',
+          style: TextStyle(color: Colors.black, fontSize: 14.sp),
+        ),
+      ],
+    ),
   ),
   shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(

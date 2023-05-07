@@ -46,7 +46,7 @@ class ProductUI extends StatelessWidget {
                   ],
                 ),
 
-                height: 240.h,
+                height: 250.h,
                 width: 168.w,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

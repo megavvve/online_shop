@@ -33,7 +33,7 @@ final List<Widget> imageSliders = PromotionalProduct.promProdList
     .map((item) => Container(
       decoration: BoxDecoration(color: item.color,borderRadius: BorderRadius.circular(16.sp)),
           
-          height: 208.h,
+          //height: 208.h,
           width: 335.w,
           child: Stack(
             children: <Widget>[

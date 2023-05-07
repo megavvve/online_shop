@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 36.h,
           ),
-           AlreadyBoughtWidget(),
+           const AlreadyBoughtWidget(),
           SizedBox(
             height: 36.h,
           ),
