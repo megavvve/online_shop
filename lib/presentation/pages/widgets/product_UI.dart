@@ -96,7 +96,7 @@ class ProductUI extends StatelessWidget {
                                     onPressed: () {
                                       bloc.add(
                                         AddCartProd(
-                                          product: product,
+                                        productId: product.id,
                                         ),
                                       );
                                     },

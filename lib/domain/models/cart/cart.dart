@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
 
 class Cart {
@@ -21,10 +23,19 @@ class Cart {
           .toList(),
     );
   }
-  static Cart defaultCart =  Cart(
+  static Cart defaultCart = Cart(
     id: 0,
     userId: 0,
     date: '00-00-0000',
     products: const <ProductInCart>[],
   );
+  Cart copyWith(
+      {int? id, int? userId, String? date, List<ProductInCart>? products}) {
+    return Cart(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      date: date ?? this.date,
+      products: products ?? this.products,
+    );
+  }
 }

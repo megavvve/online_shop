@@ -11,8 +11,9 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
+      
       builder: (context, state) {
-        if (state.productInCartList.isEmpty) {
+        if (state.cart.products.isEmpty) {
           return const EmptyCartScreen();
         } else {
          return  CartScreen();

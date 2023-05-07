@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/presentation/pages/widgets/my_bottom_navigation_bar.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/comment.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/go_to_ordering.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/textfields_with_data_order.dart';
@@ -99,7 +98,7 @@ class _MakeOrderState extends State<MakeOrder> {
             SizedBox(
               height: 16.h,
             ),
-            TotalCartSum(),
+            const TotalCartSum(),
             SizedBox(height: 10.h,),
           ],
         ),

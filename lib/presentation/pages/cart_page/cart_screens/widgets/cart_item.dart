@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
 import 'package:online_shop/domain/models/product/product.dart';
-import 'package:online_shop/domain/use_case/product_use_case.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class CartItem extends StatefulWidget {
@@ -89,7 +88,7 @@ class _CartItemState extends State<CartItem> {
                                 onPressed: () {
                                   bloc.add(
                                     DeleteCartProd(
-                                      product: product,
+                                      productId: product.id,
                                     ),
                                   );
                                 },
@@ -108,7 +107,7 @@ class _CartItemState extends State<CartItem> {
                                 onPressed: () {
                                   bloc.add(
                                     AddCartProd(
-                                      product: product,
+                                     productId: product.id,
                                     ),
                                   );
                                 },

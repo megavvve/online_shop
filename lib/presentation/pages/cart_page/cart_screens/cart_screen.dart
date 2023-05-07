@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        List<ProductInCart> prodInCartList = state.productInCartList;
+        List<ProductInCart> prodInCartList = state.cart.products;
 
         return BlocBuilder<ProductBloc, ProductState>(
           builder: (context, state) {

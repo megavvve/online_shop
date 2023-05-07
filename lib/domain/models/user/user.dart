@@ -33,7 +33,7 @@ class User {
         geolocation: Geolocation(lat: '', long: ''),
       ),
       phone: '');
-  static User user1 = User(
+  /*static User user1 = User(
     id: 1,
     email: 'support@mail.ru',
     username: 'megavvve',
@@ -50,7 +50,7 @@ class User {
       ),
     ),
     phone: '+79094043953',
-  );
+  );*/
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as int,

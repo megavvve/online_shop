@@ -10,3 +10,7 @@ class UserInit extends UserEvent{
   @override
   List<Object> get props => [];
 }
+class UserDefaultValueInit extends UserEvent{
+  @override
+  List<Object> get props => [];
+}

@@ -8,7 +8,7 @@ import 'package:online_shop/domain/models/profile_data.dart';
 
 import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/bonus_points.dart';
-import 'package:online_shop/presentation/pages/profile_page/widgets/botton_exit.dart';
+import 'package:online_shop/presentation/pages/profile_page/widgets/button_exit.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/profile_data_widget.dart';
 import 'package:online_shop/utils/app_bars.dart';
 
