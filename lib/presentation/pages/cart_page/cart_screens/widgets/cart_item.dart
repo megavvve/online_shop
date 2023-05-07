@@ -66,7 +66,7 @@ class _CartItemState extends State<CartItem> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${double.parse(((product.price * productInCart.quantity) as double).toStringAsFixed(3))} \$",
+                          "${double.parse(((product.price * productInCart.quantity) as num).toStringAsFixed(3))} \$",
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.bold,

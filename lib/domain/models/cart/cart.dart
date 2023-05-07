@@ -38,4 +38,9 @@ class Cart {
       products: products ?? this.products,
     );
   }
+
+  @override
+  String toString() {
+    return "${id} ${userId} ${date} ${products}";
+  }
 }

@@ -13,18 +13,23 @@ class OrderUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    List<Product> prodListNew= [];
     return BlocBuilder<ProductBloc, ProductState>(
-      
-      builder: (context, state) {double sum = 0;
-         List<ProductInCart> prodInCartList= cart.products;
+      builder: (context, state) {
+        double sum = 0;
+        List<ProductInCart> prodInCartList = cart.products;
         List<Product> productList = state.prodList;
-         for (ProductInCart productInCart in prodInCartList)
-                    for(Product product in productList)
-                    if (product.id==productInCart.id){
-                        sum+= product.price.toStringAsFixed(3) as double;
-                    }
-      
+        
+        for (ProductInCart productInCart in prodInCartList)
+          for (Product product in productList) {
+            if (product.id == productInCart.id) {
+              for (int i = 0; i < productInCart.quantity; i++) {
+                prodListNew.add(product);
+              }
+              sum += double.parse(product.price.toStringAsFixed(3));
+            }
+          }
+
         return InkWell(
           onTap: () {},
           child: SizedBox(
@@ -65,7 +70,7 @@ class OrderUI extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${cart.products.length} товаров на сумму ${sum}',
+                          '${prodListNew.length} товаров на сумму ${sum} \$',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14.sp,

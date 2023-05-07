@@ -33,8 +33,8 @@ class DeleteCartProd extends CartEvent {
 }
 
 class AddCartToList extends CartEvent{
-  final Cart cart;
-  const AddCartToList({required this.cart,});
+ 
+  const AddCartToList();
   @override
   List<Object> get props => [];
 }

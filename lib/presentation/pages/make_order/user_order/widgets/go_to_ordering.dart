@@ -26,9 +26,10 @@ class _GoToOrderingState extends State<GoToOrdering> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<CartBloc>();
+    
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
+        final bloc = context.read<CartBloc>();
         return Container(
           padding: EdgeInsets.all(16.sp),
           height: 134.h,
@@ -42,19 +43,12 @@ class _GoToOrderingState extends State<GoToOrdering> {
                 child: ElevatedButton(
                     onPressed: () {
                       Cart cart = state.cart;
-
-                      bloc
-                          .add(AddCartToList(cart: cart.copyWith(date: date)));
-                        //cartBloc.add(event)
-                      final list = state.cartList;
+                      print(cart);
+                      bloc.add(const AddCartToList());
+                      //cartBloc.add(event)
+                     
                       //final userBloc = context.read<UserBloc>();
-                      if (list.isNotEmpty) {
-                        for (var t in list) {
-                          print(t.id);
-                        }
-                      } else {
-                        print("Список пустой");
-                      }
+                      
 
                       bloc.add(
                         CartInit(
