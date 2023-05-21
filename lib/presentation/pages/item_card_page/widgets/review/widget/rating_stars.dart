@@ -17,9 +17,9 @@ class RatingStars extends StatelessWidget {
       itemSize: 20,
       ignoreGestures: true,
       unratedColor: Colors.grey,
-      itemBuilder: (context, _) => Icon(
+      itemBuilder: (context, _) => const Icon(
         Icons.star,
-        color: Colors.amber,
+        color: Color.fromARGB(255, 14, 14, 13),
       ), onRatingUpdate: (double value) {  },
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget CountListCart(int prodListLength) {
+Widget countListCart(int prodListLength) {
   if ((prodListLength % 100) >= 11 && (prodListLength % 100) <= 19) {
     return Text(
       "$prodListLength товаров",
@@ -46,3 +46,5 @@ Text reviewTextItem = Text(
     color: const Color(0xff8E9096),
   ),
 );
+String textForPhoneReg =
+    'Нажимая “Получить код”, я соглашаюсь с Условиями продажи, Политикой конфиденциальности и Политикой в отношении обработки персональных данных.';

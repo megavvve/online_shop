@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:online_shop/domain/models/categories.dart';
+import 'package:online_shop/domain/repository/category_repository.dart';
 
-
-class CategoryRepository {
+class CategoryDataRepository implements CategoryRepository {
+  @override
   Future<List<String>> getCategories() async {
     final response = await Dio().get(
       "https://fakestoreapi.com/products/categories",

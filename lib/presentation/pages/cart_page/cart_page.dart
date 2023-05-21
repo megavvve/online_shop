@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
 
 import 'package:online_shop/presentation/pages/cart_page/cart_screens/empty_cart_screen.dart';
 import 'package:online_shop/presentation/pages/cart_page/cart_screens/cart_screen.dart';

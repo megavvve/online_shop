@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/presentation/pages/catalog_page/widgets/buttons_top_widget.dart';
 import 'package:online_shop/presentation/pages/catalog_page/widgets/categories_widget.dart';
-import 'package:online_shop/presentation/pages/widgets/my_bottom_navigation_bar.dart';
 import 'package:online_shop/utils/app_bars.dart';
 
 class CatalogPage extends StatelessWidget {
@@ -11,7 +10,8 @@ class CatalogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarHomePage,body: Container(
+      appBar: mainAppBar(),
+      body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [

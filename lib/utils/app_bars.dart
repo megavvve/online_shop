@@ -1,54 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/utils/navigator_key.dart';
+import 'package:online_shop/presentation/blocs/user_bloc/bloc/user_bloc.dart';
 
-/*AppBar pickAppBar() {
-  
-  switch () {
-    case "Home":
-      return appBarHomePage;
-    case "Catalog":
-      return appBarHomePage;
-    case "Find":
-      return appBarHomePage;
-    case "Cart":
-      return appBarCartPage;
-    case "Profile":
-      return appBarProfilePage;
-    default:
-      return appBarHomePage;
-  }
-}*/
+import '../domain/models/user/address/address.dart';
+import 'app_assets.dart';
 
-AppBar appBarHomePage = AppBar(
-  centerTitle: true,
-  toolbarHeight: 56.h,
-  backgroundColor: Colors.white,
-  title: Center(
-    child: Row(
-      //mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset(
-          'assets/icons/main_screen/app_bar_icon.svg',
-          height: 24.h,
-          width: 15.w,
-        ),
-        SizedBox(
-          width: 8.w,
-        ),
-        Text(
-          'ул. Пушкина 15, д. 20, кв. 113',
-          style: TextStyle(color: Colors.black, fontSize: 14.sp),
-        ),
-      ],
+AppBar mainAppBar() {
+
+
+  return AppBar(
+    centerTitle: true,
+    toolbarHeight: 56.h,
+    backgroundColor: Colors.white,
+    title: BlocBuilder<UserBloc, UserState>(
+      builder: (context, state) {
+        final Address address = state.user.address;
+        return Row(
+   
+          children: [
+            SvgPicture.asset(
+              appBarIcon,
+              height: 24.h,
+              width: 15.w,
+            ),
+            SizedBox(
+              width: 8.w,
+            ),
+            Text(
+              'street ${address.street} ${address.number}, ${address.city}',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 14.sp,
+              ),
+            ),
+          ],
+        );
+      },
     ),
-  ),
-  shape: RoundedRectangleBorder(
+    shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
-    bottom: Radius.circular(20.sp),
-  )),
-);
+        bottom: Radius.circular(
+          20.sp,
+        ),
+      ),
+    ),
+  );
+
+}
 
 AppBar appBarCartPage = AppBar(
   toolbarHeight: 56.h,

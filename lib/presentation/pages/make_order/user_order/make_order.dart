@@ -15,6 +15,9 @@ class MakeOrder extends StatefulWidget {
 }
 
 bool isDeductPoints = false;
+TextEditingController textEditingController1 = TextEditingController();
+TextEditingController textEditingController2 = TextEditingController();
+TextEditingController textEditingController3 = TextEditingController();
 
 class _MakeOrderState extends State<MakeOrder> {
   @override
@@ -30,7 +33,11 @@ class _MakeOrderState extends State<MakeOrder> {
             SizedBox(
               height: 16.h,
             ),
-            const TextfieldsWithDataOrder(),
+            TextfieldsWithDataOrder(
+              textEditingController1: textEditingController1,
+              textEditingController2: textEditingController2,
+              textEditingController3: textEditingController3,
+            ),
             SizedBox(
               height: 12.5.h,
             ),
@@ -99,7 +106,9 @@ class _MakeOrderState extends State<MakeOrder> {
               height: 16.h,
             ),
             const TotalCartSum(),
-            SizedBox(height: 10.h,),
+            SizedBox(
+              height: 10.h,
+            ),
           ],
         ),
       ),

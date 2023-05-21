@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:online_shop/domain/models/cart/cart.dart';
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
 import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/presentation/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/utils/app_assets.dart';
 
 class OrderUI extends StatelessWidget {
   final Cart cart;
@@ -21,6 +22,7 @@ class OrderUI extends StatelessWidget {
         List<Product> productList = state.prodList;
         
         for (ProductInCart productInCart in prodInCartList)
+          // ignore: curly_braces_in_flow_control_structures
           for (Product product in productList) {
             if (product.id == productInCart.id) {
               for (int i = 0; i < productInCart.quantity; i++) {
@@ -47,7 +49,7 @@ class OrderUI extends StatelessWidget {
                         color: Color.fromRGBO(55, 115, 231, 0.1),
                       ),
                       child: SvgPicture.asset(
-                        'assets/icons/main_screen/app_bar_icon.svg',
+                        appBarIcon,
                         height: 5,
                         width: 5,
                         fit: BoxFit.scaleDown,
@@ -70,7 +72,7 @@ class OrderUI extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${prodListNew.length} товаров на сумму ${sum} \$',
+                          '${prodListNew.length} товаров на сумму $sum \$',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14.sp,

@@ -32,25 +32,7 @@ class User {
         zipcode: '',
         geolocation: Geolocation(lat: '', long: ''),
       ),
-      phone: '');
-  /*static User user1 = User(
-    id: 1,
-    email: 'support@mail.ru',
-    username: 'megavvve',
-    password: 'qwerty',
-    name: Name(firstname: 'Sergey', lastname: 'Akopov'),
-    address: Address(
-      city: 'Rostov-on-Don',
-      street: 'Kirovskiy',
-      number: 75,
-      zipcode: '543553',
-      geolocation: Geolocation(
-        lat: '61',
-        long: '32432432',
-      ),
-    ),
-    phone: '+79094043953',
-  );*/
+      phone: '');  
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as int,

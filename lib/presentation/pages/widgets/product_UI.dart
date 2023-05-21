@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
 
 import 'package:online_shop/presentation/pages/item_card_page/item_card_page.dart';
+import 'package:online_shop/utils/app_assets.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/utils/navigator_key.dart';
@@ -23,39 +24,55 @@ class ProductUI extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return Padding(
-          padding: EdgeInsets.only(right: 4.w, left: 8.w,),
+          padding: EdgeInsets.only(
+            right: 4.w,
+            left: 8.w,
+          ),
           child: Align(
             child: InkWell(
               onTap: () {
                 navigatorKey.currentState?.push(
                   MaterialPageRoute(
-                    builder: (context) =>  ItemCardPage( product: product,),
+                    builder: (context) => ItemCardPage(
+                      product: product,
+                    ),
                   ),
                 );
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0.sp,),
+                  borderRadius: BorderRadius.circular(
+                    12.0.sp,
+                  ),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade300,
                       blurRadius: 4,
-                      offset: const Offset(-6, 10,), // Shadow position
+                      offset: const Offset(
+                        -6,
+                        10,
+                      ),
                     ),
                   ],
                 ),
-
                 height: 250.h,
                 width: 168.w,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(product.imageUrl,height: 133.h,width: 168.w,),
-                    
+                    Image.network(
+                      product.imageUrl,
+                      height: 133.h,
+                      width: 168.w,
+                    ),
                     Container(
                       padding: EdgeInsets.only(
-                          right: 12.w, bottom: 8.h,left: 12.w, top: 8.h,),
+                        right: 12.w,
+                        bottom: 8.h,
+                        left: 12.w,
+                        top: 8.h,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -63,10 +80,12 @@ class ProductUI extends StatelessWidget {
                             alignment: Alignment.center,
                             child: Text(
                               product.title,
-                              style: TextStyle(fontSize: 12.sp,fontWeight:FontWeight.w400,),
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                               maxLines: 2,
-                               overflow: TextOverflow.ellipsis,
-                              
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           SizedBox(
@@ -74,8 +93,10 @@ class ProductUI extends StatelessWidget {
                           ),
                           Text(
                             "за 1 шт",
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.grey,),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              color: Colors.grey,
+                            ),
                           ),
                           SizedBox(
                             height: 12.h,
@@ -96,7 +117,7 @@ class ProductUI extends StatelessWidget {
                                     onPressed: () {
                                       bloc.add(
                                         AddCartProd(
-                                        productId: product.id,
+                                          productId: product.id,
                                         ),
                                       );
                                     },
@@ -113,9 +134,9 @@ class ProductUI extends StatelessWidget {
                                       ),
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/icons/main_screen/BottomNavBar4.svg',
+                                     assetForBottomNavBar4,
                                       color: Colors.white,
-                                    )),
+                                    ),),
                               )
                             ],
                           )

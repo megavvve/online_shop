@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/category_bloc/bloc/category_bloc.dart';
-import 'package:online_shop/data/api/repository/category_repository.dart';
-import 'package:online_shop/domain/models/categories.dart';
+import 'package:online_shop/presentation/blocs/category_bloc/bloc/category_bloc.dart';
 
-import 'category_card_UI.dart';
+import 'category_card_ui_catalog_page.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({super.key});
@@ -31,8 +29,12 @@ class CategoriesWidget extends StatelessWidget {
             childAspectRatio: 1.25.h,
             shrinkWrap: true,
             crossAxisCount: 2,
-            children: List.generate(listCategory.length,
-                (index) => CategoryCardUI(category: listCategory[index],),),
+            children: List.generate(
+              listCategory.length,
+              (index) => CategoryCardUI(
+                category: listCategory[index],
+              ),
+            ),
           ),
         ],
       );

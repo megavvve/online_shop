@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
 
 import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/utils/app_assets.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class ContainerForBottomNavBar extends StatelessWidget {
@@ -20,7 +21,7 @@ class ContainerForBottomNavBar extends StatelessWidget {
           padding: EdgeInsets.all(16.sp),
           height: 75.h,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(17)),
+              color: Colors.white, borderRadius: BorderRadius.circular(17.sp)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +57,7 @@ class ContainerForBottomNavBar extends StatelessWidget {
                           MaterialStateProperty.all<Color>(greenMainColor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(43.0),
+                          borderRadius: BorderRadius.circular(43.0.sp),
                         ),
                       ),
                     ),
@@ -64,7 +65,8 @@ class ContainerForBottomNavBar extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
-                          'assets/icons/main_screen/BottomNavBar4.svg',
+                          assetForBottomNavBar4,
+                          // ignore: deprecated_member_use
                           color: Colors.white,
                         ),
                         SizedBox(
@@ -76,7 +78,7 @@ class ContainerForBottomNavBar extends StatelessWidget {
                               TextStyle(color: Colors.white, fontSize: 16.sp),
                         ),
                       ],
-                    )),
+                    ),),
               ),
             ],
           ),

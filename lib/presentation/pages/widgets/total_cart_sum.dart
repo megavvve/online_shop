@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
-import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
-
 import 'package:online_shop/domain/models/product/product.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:online_shop/utils/app_texts.dart';
 import 'package:online_shop/utils/app_values.dart';
 
@@ -49,7 +48,7 @@ class TotalCartSum extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CountListCart(
+                  countListCart(
                     prodListLength,
                   ),
                   Text(
@@ -75,7 +74,7 @@ class TotalCartSum extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "${deliveryCount} \$",
+                    "$deliveryCount \$",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 18.sp,

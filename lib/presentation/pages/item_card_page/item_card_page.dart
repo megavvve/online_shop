@@ -6,8 +6,9 @@ import 'package:online_shop/domain/models/product/product.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/container_for_bottomnavbar.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/item_info.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/link_on_brand.dart';
-import 'package:online_shop/presentation/pages/item_card_page/widgets/marketing_stickers_UI.dart';
+import 'package:online_shop/presentation/pages/item_card_page/widgets/marketing_stickers_ui.dart';
 import 'package:online_shop/presentation/pages/item_card_page/widgets/weight_item_card.dart';
+import 'package:online_shop/utils/app_assets.dart';
 import 'package:online_shop/utils/app_bars.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -16,7 +17,8 @@ import '../widgets/reccomend_card_item.dart';
 class ItemCardPage extends StatelessWidget {
   final Product product;
   const ItemCardPage({
-    super.key, required this.product,
+    super.key,
+    required this.product,
   });
 
   @override
@@ -28,9 +30,10 @@ class ItemCardPage extends StatelessWidget {
       body: ListView(
         children: [
           Image.network(
-            product.imageUrl,height: 250.h,
+            product.imageUrl,
+            height: 250.h,
           ),
-          SizedBox(height:24.h),
+          SizedBox(height: 24.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             child: Column(
@@ -52,7 +55,8 @@ class ItemCardPage extends StatelessWidget {
                 Row(
                   children: [
                     SvgPicture.asset(
-                        'assets/icons/main_screen/app_bar_icon.svg'),
+                      appBarIcon,
+                    ),
                     SizedBox(
                       width: 9.w,
                     ),
@@ -69,7 +73,9 @@ class ItemCardPage extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                 ItemInfo(product: product,),
+                ItemInfo(
+                  product: product,
+                ),
                 const LinkOnBrand(),
                 SizedBox(
                   height: 24.h,

@@ -7,7 +7,7 @@ import 'package:online_shop/utils/app_colors.dart';
 
 import '../how_to_contact_you.dart';
 
-void ConfirmationCode(BuildContext context, User user) {
+void confirmationCode(BuildContext context, User user) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -71,7 +71,7 @@ void ConfirmationCode(BuildContext context, User user) {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
-                HowToContactYou(
+                howToContactYou(
                   context,
                   user,
                 );

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/domain/models/user/user.dart';
 import 'package:online_shop/utils/app_colors.dart';
+import 'package:online_shop/utils/app_texts.dart';
 
 import 'confirm_code/сonfirmation_code.dart';
 
-void PhoneRegistration(BuildContext context, User user) {
+void phoneRegistration(BuildContext context, User user) {
   showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -95,7 +96,7 @@ void PhoneRegistration(BuildContext context, User user) {
                     child: ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          ConfirmationCode(
+                          confirmationCode(
                             context,
                             user,
                           );
@@ -120,7 +121,7 @@ void PhoneRegistration(BuildContext context, User user) {
                     height: 24.h,
                   ),
                   Text(
-                    'Нажимая “Получить код”, я соглашаюсь с Условиями продажи, Политикой конфиденциальности и Политикой в отношении обработки персональных данных.',
+                    textForPhoneReg,
                     style:
                         TextStyle(color: Colors.grey.shade400, fontSize: 12.sp),
                   ),

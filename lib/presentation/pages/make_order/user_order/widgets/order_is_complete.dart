@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
-import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
-import 'package:online_shop/domain/models/cart/cart.dart';
-import 'package:online_shop/domain/models/user/user.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
 import 'package:online_shop/presentation/pages/profile_page/screens/my_orders_screen/my_orders.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class OrderIsComplete extends StatefulWidget {
-  OrderIsComplete({super.key});
+  const OrderIsComplete({super.key});
 
   @override
   State<OrderIsComplete> createState() => _OrderIsCompleteState();

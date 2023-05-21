@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:online_shop/data/api/repository/products_repository.dart';
 import 'package:online_shop/domain/models/product/rating.dart';
 
 class Product {
@@ -48,49 +45,8 @@ class Product {
       category: json['category'] as String,
       description: json['description'] as String,
       imageUrl: json['image'] as String,
-      //rating:(json['rating'] as Map<String, dynamic>),
       rating: Rating.fromJson(json['rating'] as Map<String, dynamic>,),
     );
   }
 
-  
-  /*Product copyWithPlus() {
-    return Product(
-        name: name,
-        weight: weight,
-        price: price,
-        imageUrl: imageUrl,
-        inCart: inCart + 1);
-  }
-
-  Product copyWithMinus() {
-    return Product(
-      name: name,
-      weight: weight,
-      price: price,
-      imageUrl: imageUrl,
-      inCart: (inCart > 0) ? inCart - 1 : inCart,
-    );
-  }*/
-
-  /*static List<Product> listProd = [
-    Product(
-        id: 1,
-        title: "Масло сливочное Традиционное",
-        price: 329,
-        description: '',
-        category: 'Молочные продукты',
-        imageUrl: "assets/images/product_card/product_card1.png",
-        rating:Rating(rate: 120.1, count: 32),),
-    Product(
-      id: 2,
-      title: 'УГЛЕЧЕ ПОЛЕ Стейк Флэнк (Ангус) охл скин',
-      price: 1090,
-      description: '',
-      category: 'Мясо',
-      imageUrl: "assets/images/product_card/beef.png",
-      rating:Rating(rate: 120.1, count: 32),
-    ),
-  ];*/
-   //static List<Product>? listProd = ProductsRepository().getProductsList() as List<Product>?;
 }

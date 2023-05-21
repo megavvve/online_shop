@@ -43,7 +43,7 @@ class ProfileDataWidget extends StatelessWidget {
                   ),
                 );
                 },
-              ))
+              ),)
           .toList(),
     );
   }

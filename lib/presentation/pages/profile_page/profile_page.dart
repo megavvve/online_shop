@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
-
 import 'package:online_shop/domain/models/profile_data.dart';
 
 import 'package:online_shop/domain/models/user/user.dart';
+import 'package:online_shop/presentation/blocs/user_bloc/bloc/user_bloc.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/bonus_points.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/button_exit.dart';
 import 'package:online_shop/presentation/pages/profile_page/widgets/profile_data_widget.dart';
@@ -17,24 +16,26 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: appBarProfilePage,
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
           final User user = state.user;
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+            ),
             child: ListView(
-              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 32.h,
                 ),
                 Text(
                   user.name.firstname,
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24.sp,
+                  ),
                 ),
                 Text(
                   user.phone,

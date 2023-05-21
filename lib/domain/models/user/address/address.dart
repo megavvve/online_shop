@@ -7,14 +7,28 @@ class Address {
   final String zipcode;
   final Geolocation geolocation;
 
-  Address({required this.city, required this.street, required this.number, required this.zipcode, required this.geolocation,});
+  Address({
+    required this.city,
+    required this.street,
+    required this.number,
+    required this.zipcode,
+    required this.geolocation,
+  });
+  static Address defaultAddress = Address(
+      city: '',
+      street: '',
+      number: 0,
+      zipcode: '',
+      geolocation: Geolocation(lat: '', long: '',),);
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
       city: json['city'] as String,
       street: json['street'] as String,
       number: json['number'] as int,
       zipcode: json['zipcode'] as String,
-      geolocation: Geolocation.fromJson(json['geolocation'] as Map<String, dynamic>,),
+      geolocation: Geolocation.fromJson(
+        json['geolocation'] as Map<String, dynamic>,
+      ),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/domain/models/categories.dart';
 import 'package:online_shop/presentation/pages/subategories_page/subcategories_page.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
@@ -11,27 +10,33 @@ class CategoryCardUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 4.w,left: 8.w,),
+      padding: EdgeInsets.only(
+        right: 4.w,
+        left: 8.w,
+      ),
       child: InkWell(
-        onTap: () {navigatorKey.currentState?.push(
-                  MaterialPageRoute(
-                    builder: (context) => SubcategoriesPage(category: category,),
-                  ),
-                );},
-        child: Align(
-          
-          child: Container(
-             decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12.sp),
-            boxShadow:  [
-              BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 4,
-              offset: const Offset(-6, 10), // Shadow position
+        onTap: () {
+          navigatorKey.currentState?.push(
+            MaterialPageRoute(
+              builder: (context) => SubcategoriesPage(
+                category: category,
               ),
-            ],
-          ),
+            ),
+          );
+        },
+        child: Align(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.sp),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  blurRadius: 4,
+                  offset: const Offset(-6, 10),
+                ),
+              ],
+            ),
             padding: EdgeInsets.only(right: 8.w, left: 12.w, bottom: 12.h),
             height: 104.h,
             width: 104.w,
@@ -39,7 +44,6 @@ class CategoryCardUI extends StatelessWidget {
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Center(
                       child: Text(
@@ -49,11 +53,6 @@ class CategoryCardUI extends StatelessWidget {
                     )
                   ],
                 ),
-                /*Positioned(
-                  top: 0,
-                  left: 0,
-                  child: Image(image: AssetImage(category.imageUrl)),
-                ),*/
               ],
             ),
           ),

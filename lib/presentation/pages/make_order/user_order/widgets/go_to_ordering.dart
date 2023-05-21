@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
 import 'package:online_shop/domain/models/cart/cart.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/pages/make_order/user_order/make_order.dart';
 import 'package:online_shop/presentation/pages/make_order/user_order/widgets/order_is_complete.dart';
 import 'package:online_shop/utils/app_colors.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class GoToOrdering extends StatefulWidget {
-  const GoToOrdering({super.key});
+  const GoToOrdering({
+    super.key,
+  });
 
   @override
   State<GoToOrdering> createState() => _GoToOrderingState();
@@ -26,7 +29,6 @@ class _GoToOrderingState extends State<GoToOrdering> {
 
   @override
   Widget build(BuildContext context) {
-    
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         final bloc = context.read<CartBloc>();
@@ -42,27 +44,46 @@ class _GoToOrderingState extends State<GoToOrdering> {
                 width: 343.w,
                 child: ElevatedButton(
                     onPressed: () {
-                      Cart cart = state.cart;
-                      print(cart);
-                      bloc.add(const AddCartToList());
-                      //cartBloc.add(event)
-                     
-                      //final userBloc = context.read<UserBloc>();
-                      
+                      if (textEditingController1.text.isEmpty ||
+                          textEditingController2.text.isEmpty ||
+                          textEditingController3.text.isEmpty) {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Ошибка ввода данных'),
+                                content: const Text(
+                                  'Одно или несколько из обязательных полей не заполненны.',
+                                ),
+                                actions: <Widget>[
+                                  FloatingActionButton(
+                                    backgroundColor: greenMainColor,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Ок'),
+                                  )
+                                ],
+                              );
+                            });
+                      } else {
+                        Cart cart = state.cart;
 
-                      bloc.add(
-                        CartInit(
-                          id: cart.id + 1,
-                          userId: cart.userId,
-                          date: date,
-                        ),
-                      );
-                      bloc.add(ResetListEvent());
-                      navigatorKey.currentState?.push(
-                        MaterialPageRoute(
-                          builder: (context) => OrderIsComplete(),
-                        ),
-                      );
+                        bloc.add(const AddCartToList());
+                        bloc.add(
+                          CartInit(
+                            id: cart.id + 1,
+                            userId: cart.userId,
+                            date: date,
+                          ),
+                        );
+                        bloc.add(ResetListEvent());
+                        navigatorKey.currentState?.push(
+                          MaterialPageRoute(
+                            builder: (context) => const OrderIsComplete(),
+                          ),
+                        );
+                      }
                     },
                     style: ButtonStyle(
                       backgroundColor:

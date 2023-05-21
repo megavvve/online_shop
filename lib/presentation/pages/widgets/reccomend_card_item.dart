@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
-import 'package:online_shop/presentation/pages/widgets/product_UI.dart';
+import 'package:online_shop/presentation/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/presentation/pages/widgets/product_ui.dart';
 
 class RecommendCardItem extends StatelessWidget {
   const RecommendCardItem({super.key});

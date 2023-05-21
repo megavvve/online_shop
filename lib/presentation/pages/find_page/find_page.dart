@@ -7,7 +7,7 @@ class FindPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarHomePage,
+      appBar: mainAppBar(),
       body: const Center(
         child: Text("Find"),
       ),

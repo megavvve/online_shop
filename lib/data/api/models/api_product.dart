@@ -1,4 +1,4 @@
-import 'package:online_shop/data/api/models/api_rating/api_rating.dart';
+import 'package:online_shop/data/api/models/api_rating.dart';
 
 class ApiProduct {
   final int id;
@@ -25,7 +25,6 @@ class ApiProduct {
       category: json['category'] as String,
       description: json['description'] as String,
       imageUrl: json['image'] as String,
-      //rating:(json['rating'] as Map<String, dynamic>),
       rating: (ApiRating.fromJson(json['rating'] as Map<String, dynamic>)),
     );
   }

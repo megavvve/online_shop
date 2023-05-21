@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop/domain/models/cart/cart.dart';
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
-import 'package:online_shop/domain/models/product/product.dart';
+
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  CartBloc() : super(CartState(cart: Cart.defaultCart, cartList: <Cart>[])) {
+  CartBloc() : super(CartState(cart: Cart.defaultCart, cartList: const <Cart>[])) {
     on<AddCartProd>(_onAddCardProd);
     on<CartInit>(_onInitCart);
     on<DeleteCartProd>(_onDeleteCartProd);

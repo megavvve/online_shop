@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
-import 'package:online_shop/blocs/category_bloc/bloc/category_bloc.dart';
-import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
-import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/blocs/category_bloc/bloc/category_bloc.dart';
+import 'package:online_shop/presentation/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/presentation/blocs/user_bloc/bloc/user_bloc.dart';
 import 'package:online_shop/presentation/pages/home.dart';
+import 'package:online_shop/utils/app_assets.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,7 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
     final blocCategory = context.read<CategoryBloc>();
     blocCategory.add(CategoryInit());
     final blocCart = context.read<CartBloc>();
-    blocCart.add(CartInit(date: date, userId: blocUser.state.user.id, id: 1,));
+    blocCart.add(CartInit(
+      date: date,
+      userId: blocUser.state.user.id,
+      id: 1,
+    ));
     changeScreen();
     super.initState();
   }
@@ -37,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Home()),
+        MaterialPageRoute(builder: (context) => const Home(),),
       );
     });
   }
@@ -49,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset('assets/images/splash/splash.svg'),
+          SvgPicture.asset(assetForSplash),
           SizedBox(
             height: 17.h,
           ),
@@ -67,12 +72,14 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(
                 width: 12.w,
               ),
-              Text('маркет',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 40.sp,
-                    fontWeight: FontWeight.bold,
-                  ))
+              Text(
+                'маркет',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 40.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           )
         ],

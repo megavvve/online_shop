@@ -15,7 +15,6 @@ class Comment extends StatelessWidget {
         style: TextStyle(
           color: secondaryColor,
           fontSize: 16.sp,
-          //fontWeight: FontWeight.bold,
         ),
         decoration: InputDecoration(
           filled: true,

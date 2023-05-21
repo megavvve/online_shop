@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/presentation/blocs/cart_bloc/cart_bloc.dart';
+import 'package:online_shop/utils/app_assets.dart';
 
 import 'package:online_shop/utils/navigator_key.dart';
 
@@ -26,16 +27,16 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         );
         break;
       case 1:
-        navigatorKey.currentState?.pushNamed("Catalog");
+        navigatorKey.currentState?.pushNamed("Catalog",);
         break;
       case 2:
-        navigatorKey.currentState?.pushNamed("Find");
+        navigatorKey.currentState?.pushNamed("Find",);
         break;
       case 3:
-        navigatorKey.currentState?.pushNamed("Cart");
+        navigatorKey.currentState?.pushNamed("Cart",);
         break;
       case 4:
-        navigatorKey.currentState?.pushNamed("Profile");
+        navigatorKey.currentState?.pushNamed("Profile",);
         break;
     }
     setState(() {
@@ -52,8 +53,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0.sp),
-                topRight: Radius.circular(20.0.sp),
+                topLeft: Radius.circular(20.0.sp,),
+                topRight: Radius.circular(20.0.sp,),
               ),
               child: SizedBox(
                 height: 80.h,
@@ -68,16 +69,17 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                     BottomNavigationBarItem(
                       icon: _selectedTab == 0
                           ? SvgPicture.asset(
-                              'assets/icons/main_screen/BottomNavBar1.svg',
+                              assetForBottomNavBar1,
                             )
                           : SvgPicture.asset(
-                              'assets/icons/main_screen/BottomNavBar1Grey.svg',
+                              assetForBottomNavBar1Grey,
                             ),
                       label: 'Главная',
                     ),
                     BottomNavigationBarItem(
                         icon: SvgPicture.asset(
-                          'assets/icons/main_screen/BottomNavBar2.svg',
+                          assetForBottomNavBar2,
+                          // ignore: deprecated_member_use
                           color: _selectedTab == 1
                               ? Colors.green
                               : Colors.grey.shade400,
@@ -85,7 +87,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                         label: 'Каталог'),
                     BottomNavigationBarItem(
                         icon: SvgPicture.asset(
-                          'assets/icons/main_screen/BottomNavBar3.svg',
+                          assetForBottomNavBar3,
                           color: _selectedTab == 2
                               ? Colors.green
                               : Colors.grey.shade400,
@@ -93,7 +95,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                         label: 'Поиск'),
                     BottomNavigationBarItem(
                         icon: SvgPicture.asset(
-                          'assets/icons/main_screen/BottomNavBar4.svg',
+                          assetForBottomNavBar4,
                           color: _selectedTab == 3
                               ? Colors.green
                               : Colors.grey.shade400,
@@ -101,12 +103,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                         label: 'Корзина'),
                     BottomNavigationBarItem(
                         icon: SvgPicture.asset(
-                          'assets/icons/main_screen/BottomNavBar5.svg',
+                          assetForBottomNavBar5,
                           color: _selectedTab == 4
                               ? Colors.green
                               : Colors.grey.shade400,
                         ),
-                        label: 'Профиль'),
+                        label: 'Профиль',),
                   ],
                 ),
               ),

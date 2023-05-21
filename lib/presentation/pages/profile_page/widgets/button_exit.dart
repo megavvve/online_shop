@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_shop/blocs/user_bloc/bloc/user_bloc.dart';
+import 'package:online_shop/presentation/blocs/user_bloc/bloc/user_bloc.dart';
 import 'package:online_shop/presentation/pages/home_page/home_page.dart';
+import 'package:online_shop/utils/app_assets.dart';
 import 'package:online_shop/utils/navigator_key.dart';
 
 class ButtonExit extends StatelessWidget {
@@ -27,7 +28,8 @@ class ButtonExit extends StatelessWidget {
           child: Row(
             children: [
               SvgPicture.asset(
-                'assets/icons/profile/quit_profile.svg',
+                quitProfile,
+                // ignore: deprecated_member_use
                 color: Colors.grey,
               ),
               SizedBox(
@@ -39,7 +41,7 @@ class ButtonExit extends StatelessWidget {
                   color: Colors.grey,
                   fontSize: 18.sp,
                 ),
-              )
+              ),
             ],
           ),
         );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_shop/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:online_shop/domain/models/product/product.dart';
-import 'package:online_shop/presentation/pages/widgets/product_UI.dart';
+import 'package:online_shop/presentation/blocs/product_bloc/bloc/product_bloc.dart';
+import 'package:online_shop/presentation/pages/widgets/product_ui.dart';
 import 'package:online_shop/utils/app_bars.dart';
 import 'package:online_shop/utils/app_colors.dart';
 
@@ -101,7 +101,7 @@ class _SubcategoriesPageState extends State<SubcategoriesPage> {
               SizedBox(height: 24.h),
               GridView.count(
                 physics:
-                    const NeverScrollableScrollPhysics(), // to disable GridView's scrolling
+                    const NeverScrollableScrollPhysics(), 
                 shrinkWrap: true,
                 childAspectRatio: 0.6.h,
                 crossAxisCount: 2,

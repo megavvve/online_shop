@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextfieldsWithDataOrder extends StatelessWidget {
-  const TextfieldsWithDataOrder({super.key});
+  final TextEditingController textEditingController1;
+  final TextEditingController textEditingController2;
+  final TextEditingController textEditingController3;
+  const TextfieldsWithDataOrder({super.key, required this.textEditingController1, required this.textEditingController2, required this.textEditingController3});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +15,7 @@ class TextfieldsWithDataOrder extends StatelessWidget {
           height: 60.h,
           width: 343.w,
           child: TextField(
+            controller: textEditingController1,
             style: TextStyle(
               color: Colors.black,
               fontSize: 15.sp,
@@ -27,10 +31,11 @@ class TextfieldsWithDataOrder extends StatelessWidget {
               fillColor: Colors.grey.shade300,
               labelText: 'Адрес доставки',
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                style: BorderStyle.solid,
-              ),),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                  style: BorderStyle.solid,
+                ),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
                   4.sp,
@@ -50,6 +55,7 @@ class TextfieldsWithDataOrder extends StatelessWidget {
           height: 60.h,
           width: 343.w,
           child: TextField(
+             controller: textEditingController2,
             style: TextStyle(
               color: Colors.black,
               fontSize: 15.sp,
@@ -65,10 +71,11 @@ class TextfieldsWithDataOrder extends StatelessWidget {
               fillColor: Colors.grey.shade300,
               labelText: 'Дата и время доставки',
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                style: BorderStyle.solid,
-              ),),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                  style: BorderStyle.solid,
+                ),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
                   4.sp,
@@ -88,6 +95,7 @@ class TextfieldsWithDataOrder extends StatelessWidget {
           height: 60.h,
           width: 343.w,
           child: TextField(
+             controller: textEditingController3,
             style: TextStyle(
               color: Colors.black,
               fontSize: 15.sp,
@@ -103,10 +111,11 @@ class TextfieldsWithDataOrder extends StatelessWidget {
               fillColor: Colors.grey.shade300,
               labelText: 'Способ оплаты',
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                style: BorderStyle.solid,
-              ),),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                  style: BorderStyle.solid,
+                ),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
                   4.sp,

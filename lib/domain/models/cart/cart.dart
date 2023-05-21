@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:online_shop/domain/models/cart/product_in_cart.dart';
 
@@ -41,6 +40,6 @@ class Cart {
 
   @override
   String toString() {
-    return "${id} ${userId} ${date} ${products}";
+    return "$id $userId $date $products";
   }
 }
